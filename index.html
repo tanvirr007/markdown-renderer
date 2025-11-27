@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="https://projectmatrixx.org/favicon.ico" type="image/x-icon" sizes="256x256"/>
+<title>Matrixx Docs</title>
+<style>
+  body {
+    font-family: "Inter", "Segoe UI", sans-serif;
+    background: #fff;
+    color: #24292e;
+    padding: 2rem;
+    line-height: 1.7;
+    max-width: 900px;
+    margin: auto;
+  }
+  pre {
+    background: #f6f8fa;
+    padding: 10px;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+  code {
+    background: #f6f8fa;
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-family: monospace;
+  }
+</style>
+<script src="https://hardikpro.netlify.app/markdown.js"></script>
+</head>
+<body>
+<h2 id="loading">Loading into matrixx pls wait…</h2>
+<div id="content"></div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const url = params.get("url");
+  const contentDiv = document.getElementById("content");
+  const loading = document.getElementById("loading");
+
+  if (!url) {
+    loading.textContent = "This website provides flashing guides for all officially supported devices.";
+  } else {
+    fetch(url)
+      .then(r => r.text())
+      .then(md => {
+        const mdParser = window.markdownit({html: false, linkify: true, typographer: true});
+        contentDiv.innerHTML = mdParser.render(md);
+        loading.remove();
+      })
+      .catch(err => {
+        loading.textContent = "❌ Failed to load Markdown: " + err;
+      });
+  }
+</script>
+</body>
+</html>
+
+
+
+
+
