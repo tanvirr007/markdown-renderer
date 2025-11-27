@@ -26,7 +26,7 @@ The viewer fetches a remote Markdown file (like a ROM changelog or device guide)
 Viewer usage example:
 
 ```
-https://install.projectmatrixx.org/?url=https://raw.githubusercontent.com/user/repo/branch/DEVICE.md
+https://install.projectmatrixx.org/?url=https://raw.githubusercontent.com/user/repo/branch/markdown.md
 ```
 
 Just replace the `url=` parameter with any public raw Markdown link from GitHub.
@@ -44,7 +44,7 @@ https://install.projectmatrixx.org/?url=<RAW_MARKDOWN_URL>
 Example (your changelog):
 
 ```
-https://install.projectmatrixx.org/?url=https://raw.githubusercontent.com/euclid-Devices/vendor_euclidOTA/refs/heads/14/changelogs.md
+https://install.projectmatrixx.org/?url=https://raw.githubusercontent.com/Matrixx-Devices/android_vendor_MatrixxOTA/refs/heads/16.0/changelogs/source_changelog.md
 ```
 
 ### **2. Embed in Any Website**
